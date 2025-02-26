@@ -1,58 +1,34 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import Home from './src/(tabs)/Home';
-import Users from './src/pages/Users'
+// import { createStackNavigator } from '@react-navigation/stack'; // Import createStackNavigator
 import "./global.css";
-import { useFonts } from 'expo-font';
-import { useEffect } from 'react';
-import { SplashScreen } from 'expo-router';
-import Signup from './src/pages/Signup';
-import Login from './src/pages/Login';
-import Bookmark from './src/(tabs)/Bookmark';
-import Create from './src/(tabs)/Create';
-import Profile from './src/(tabs)/Profile';
+import Tabs from './src/tabs'
+import Login from './src/components/Login'
+// import bookmark from './src/(tabs)/bookmark';
+// import create from './src/(tabs)/create';
+// import home from './src/(tabs)/home';
+// import profile from './src/(tabs)/profile';
+// import Layout from './src/(auth)/_layout';
+// import Search from './src/search/[query]';
+// import SignIn from './src/(auth)/sign-in';
+// import SignUp from './src/(auth)/sign-up';
 
-const Stack = createStackNavigator();
-SplashScreen.preventAutoHideAsync();
+// const Stack = createStackNavigator(); // Initialize Stack
 
 export default function App() {
-  const [fontsLoaded, error] = useFonts({
-    "Poppins-Black": require("./assets/fonts/Poppins-Black.ttf"),
-    "Poppins-Bold": require("./assets/fonts/Poppins-Bold.ttf"),
-    "Poppins-ExtraBold": require("./assets/fonts/Poppins-ExtraBold.ttf"),
-    "Poppins-ExtraLight": require("./assets/fonts/Poppins-ExtraLight.ttf"),
-    "Poppins-Light": require("./assets/fonts/Poppins-Light.ttf"),
-    "Poppins-Medium": require("./assets/fonts/Poppins-Medium.ttf"),
-    "Poppins-Regular": require("./assets/fonts/Poppins-Regular.ttf"),
-    "Poppins-SemiBold": require("./assets/fonts/Poppins-SemiBold.ttf"),
-    "Poppins-Thin": require("./assets/fonts/Poppins-Thin.ttf"),
-  });
-
-  useEffect(() => {
-    if(error) throw error;
-
-    if(fontsLoaded){
-      SplashScreen.hideAsync();
-    }
-  },[fontsLoaded, error])
-
-  if(!fontsLoaded){
-    return null;
-  }
-  if(!fontsLoaded && !error){
-    return null;
-  }
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='Home' options={{ headerShown: false}} component={Home} />
-        <Stack.Screen name='Bookmark' options={{ headerShown: false }} component={Bookmark} />
-        <Stack.Screen name='Create' options={{ headerShown: false}} component={Create} />
-        <Stack.Screen name='Profile' options={{ headerShown: false}} component={Profile} />
-        <Stack.Screen name='Users' component={Users} />
-        <Stack.Screen name='Login' component={Login} />
-        <Stack.Screen name='Signup' component={Signup} />
-      </Stack.Navigator>
+      {/* <Stack.Navigator>
+        <Stack.Screen name="Login" component={Login} /> */}
+        {/* <Stack.Screen name="Bookmark" component={bookmark} />
+        <Stack.Screen name="Create" component={create} />
+        <Stack.Screen name="Home" component={home} />
+        <Stack.Screen name="Profile" component={profile} />
+        <Stack.Screen name="TabsLayout" component={Layout} />
+        <Stack.Screen name="Search" component={Search} />
+        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="SignUp" component={SignUp} /> */}
+      {/* </Stack.Navigator> */}
+      <Tabs />
     </NavigationContainer>
   );
 }

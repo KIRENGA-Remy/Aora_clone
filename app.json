@@ -4,15 +4,13 @@
     "slug": "aora_clone",
     "version": "1.0.0",
     "orientation": "portrait",
-    "schema":"aora_clone",
+    "scheme": "aora_clone",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff",
-      "newArchEnabled": true
+      "backgroundColor": "#ffffff"
     },
     "ios": {
       "supportsTablet": true
@@ -26,6 +24,14 @@
     "web": {
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
+    },
+    "plugins": [
+      "expo-font"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "your-project-id"
+      }
     }
   }
 }
