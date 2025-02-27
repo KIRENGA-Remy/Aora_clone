@@ -21,7 +21,8 @@ const TabIcon = ({ icon, color, name, focused }) => {
       <Text
         style={{
           color: color,
-          fontSize: 10, // Reduce text size
+          fontSize: 12,
+          fontWeight: 'bold', // Reduce text size
           fontFamily: focused ? "Poppins-SemiBold" : "Poppins-Regular",
         }}
       >
