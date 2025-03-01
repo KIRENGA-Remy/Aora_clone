@@ -2,8 +2,8 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./Home";
-import Bookmark from "./Bookmark";
-import Create from "./Create";
+import Bookmark from "./Bookmark"
+import Create from "./Create"
 import Profile from "./Profile";
 import { icons } from "../constants"; // Import your icons
 

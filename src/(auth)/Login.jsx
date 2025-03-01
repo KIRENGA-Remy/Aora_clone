@@ -1,20 +1,59 @@
-import React from "react";
-import { View, Text, TextInput, Button } from "react-native";
+import React, { useState } from "react";
+import { View, ScrollView, Image, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { images } from "../constants";
+import FormField from "../components/FormField";
+import CustomButton from '../components/CustomButton'
+import { Link } from 'expo-router'
 
-export default function Login() {
+export default function Login(){
+  const [form, setForm ] = useState({
+    email: '',
+    password: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const submit = () => {}
   return (
-    <View className="flex-1 justify-center items-center bg-white">
-      <Text className="text-2xl font-bold">Login</Text>
-      <TextInput
-        className="border border-gray-300 rounded-lg px-4 py-2 w-80 mt-4"
-        placeholder="Email"
-      />
-      <TextInput
-        className="border border-gray-300 rounded-lg px-4 py-2 w-80 mt-2"
-        placeholder="Password"
-        secureTextEntry
-      />
-      <Button title="Login" />
-    </View>
-  );
+    <SafeAreaView className="bg-primary h-full">
+          <ScrollView style={{height: '85vh'}}>
+            <View style={{ width: '100%', justifyContent: 'center', height: '100%', marginTop: '32px'}}>
+              <Image 
+              source={images.logo}
+              resizeMode="contain"
+              // className="w-[180px] h-[84px] mx-6"
+              style={{width: '115px', height: '35px', marginVertical: '32px', marginHorizontal: '8px'}}
+              />
+              <Text className="text-3xl font-semibold text-white px-4">Log in to Aora</Text>
+              <FormField 
+              title="Email"
+              value={form.email}
+              placeholder="Enter your email"
+              handleChangeText={(e) => setForm({...form, email: e})}
+              otherStyles={{ marginTop: '32px'}}
+              keyboardType="email-address"
+              />
+              <FormField 
+              title="Password"
+              placeholder="Enter your password"
+              value={form.password}
+              handleChangeText={(e) => setForm({...form, password: e})}
+              />
+              <CustomButton 
+              title="Sign in"
+              handlePress={submit}
+              isLoading={isSubmitting}
+              />
+              <View className="items-center justify-center pt-3 flex-row gap-2">
+                <Text className="text-2xl text-gray-100 font-pregular">Don't have account?</Text>
+                <Link 
+                href={'/Register'}
+                className="text-2xl font-psemibold text-secondary"
+                >
+                  Register
+                </Link>
+              </View>
+            </View>
+          </ScrollView>
+        </SafeAreaView>
+  )
 }
