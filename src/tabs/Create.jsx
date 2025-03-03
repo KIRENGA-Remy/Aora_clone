@@ -22,15 +22,13 @@ export default function Create(){
   return (
     <SafeAreaView className="bg-primary h-full">
         <ScrollView 
-        contentContainerStyle={{ flexGrow: 1, paddingBottom: 20 }}
+        style={{height: '85vh'}}
         keyboardShouldPersistTaps="handled"
         >
-          {/* <ScrollView style={{height: '85vh'}}> */}
             <View style={{ width: '100%', justifyContent: 'center', height: '100%', marginTop: 32}}>
               <Image 
               source={images.logo}
               resizeMode="contain"
-              // className="w-[180px] h-[84px] mx-6"
               style={{width: '115px', height: '35px', marginVertical: '32px', marginHorizontal: '8px'}}
               />
               <Text className="text-3xl font-semibold text-white px-4">Log in to Aora</Text>
@@ -53,7 +51,7 @@ export default function Create(){
               handlePress={submit}
               isLoading={isSubmitting}
               />
-              <View className="items-center justify-center pt-3 flex-row gap-2">
+              <View className="items-center justify-center flex-row gap-2">
                 <Text className="text-2xl text-gray-100 font-pregular">Don't have account?</Text>
                 <Link 
                 href="/Register"

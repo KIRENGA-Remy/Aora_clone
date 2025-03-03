@@ -13,29 +13,26 @@ export default function CustomButton({ title, handlePress, isLoading }) {
         width: "92%", 
         alignSelf: "center", 
         marginVertical: 48,
-        paddingHorizontal: 16,
-        flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
         opacity: isLoading ? 0.7 : 1
       }}
       disabled={isLoading}
     >
+      <View style={{paddingVertical: 12, color: "black"}}>
       {isLoading ? (
-      <ActivityIndicator size="small" color="black" /> // Show loader
+      <ActivityIndicator size="small" color= "black" /> 
     ) : (
       <Text
       style={{
-        color: "black",
         textAlign: "center",
         fontSize: 16,
-        paddingVertical: 16,
         fontWeight: "700",
-      }}
-    >
-      {title}
-    </Text>
-    )}
+      }}>
+        {title}
+        </Text>
+      )}
+      </View>
     </TouchableOpacity>
   );
 }
