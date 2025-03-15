@@ -5,11 +5,10 @@ import Home from "./Home";
 import Bookmark from "./Bookmark"
 import Create from "./Create"
 import Profile from "./Profile";
-import { icons } from "../constants"; // Import your icons
+import { icons } from "../constants";
 
 const Tab = createBottomTabNavigator();
 
-// Reusable TabIcon Component
 const TabIcon = ({ icon, color, name, focused }) => {
   return (
     <View style={{flexDirection:'column', alignItems: "center", justifyContent: "center", gap: 8 }}>

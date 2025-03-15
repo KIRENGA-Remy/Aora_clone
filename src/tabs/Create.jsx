@@ -5,12 +5,15 @@ import { images } from "../constants";
 import FormField from "../components/FormField";
 import CustomButton from '../components/CustomButton'
 import { Link } from 'expo-router'
+import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native";
 
 export default function Create(){
   const [form, setForm ] = useState({
     email: '',
     password: ''
   })
+  const navigate = useNavigation()
   const [isSubmitting, setIsSubmitting] = useState(false);
   const submit = () => {
     setIsSubmitting(true);
@@ -51,7 +54,7 @@ export default function Create(){
               handlePress={submit}
               isLoading={isSubmitting}
               />
-              <View className="items-center justify-center flex-row gap-2">
+              {/* <View className="items-center justify-center flex-row gap-2">
                 <Text className="text-2xl text-gray-100 font-pregular">Don't have account?</Text>
                 <Link 
                 href="/Register"
@@ -59,7 +62,16 @@ export default function Create(){
                 >
                   Register
                 </Link>
-              </View>
+              </View> */}
+
+<Link href="/Register">View details</Link>
+
+              {/* <TouchableOpacity onPress={() => navigation.navigate('auth/Register')}>
+  <Text style={{ fontSize: 18, fontFamily: 'PSemibold', color: '#6C63FF' }}>
+    Register
+  </Text>
+</TouchableOpacity> */}
+
             </View>
           </ScrollView>
         </SafeAreaView>
