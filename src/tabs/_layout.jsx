@@ -10,20 +10,46 @@ import { icons } from "../constants";
 const Tab = createBottomTabNavigator();
 
 const TabIcon = ({ icon, color, name, focused }) => {
+  const TAB_COLORS = {
+    active: "#FFA001",
+    inactive: "#CDCDE0" 
+  }
+  
   return (
-    <View style={{flexDirection:'column', alignItems: "center", justifyContent: "center", gap: 8 }}>
+    <View 
+      style={{
+        flexDirection: 'column', 
+        alignItems: "center", 
+        justifyContent: "center", 
+        gap: 4, 
+        paddingTop: 12,
+        width: 80 // Added fixed width to prevent shifting
+      }}
+      accessibilityRole="button"
+    >
       <Image
         source={icon}
         resizeMode="contain"
-        style={{ width: 24, height: 24, tintColor: color }}
+        style={{ 
+          width: 30, 
+          height: 30, 
+          tintColor: focused ? TAB_COLORS.active : TAB_COLORS.inactive, 
+          transform: [{scale: focused ? 1.2 : 1}] 
+        }}
       />
       <Text
         style={{
-          color: color,
-          fontSize: 12,
-          fontWeight: 'bold', // Reduce text size
-          fontFamily: focused ? "Poppins-SemiBold" : "Poppins-Regular",
+          color: focused ? TAB_COLORS.active : TAB_COLORS.inactive,
+          fontSize: 10, // Slightly smaller for better fit
+          fontWeight: focused ? '600' : '400', // More subtle weight difference
+          textAlign: "center",
+          fontFamily: "Poppins-Regular", // Consistent font family
+          width: '100%', // Take full width of parent
+          includeFontPadding: false // Remove extra font padding
         }}
+        allowFontScaling={false}
+        numberOfLines={1}
+        ellipsizeMode="tail" // Add ellipsis if needed
       >
         {name}
       </Text>

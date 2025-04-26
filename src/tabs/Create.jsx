@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../constants";
 import FormField from "../components/FormField";
 import CustomButton from '../components/CustomButton'
-import { Link } from 'expo-router'
+import { Link,router } from 'expo-router'
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 
@@ -54,17 +54,15 @@ export default function Create(){
               handlePress={submit}
               isLoading={isSubmitting}
               />
-              {/* <View className="items-center justify-center flex-row gap-2">
+              <View className="items-center justify-center flex-row gap-2">
                 <Text className="text-2xl text-gray-100 font-pregular">Don't have account?</Text>
                 <Link 
-                href="/Register"
+                href="/auth/Register"
                 className="text-2xl font-psemibold text-secondary"
                 >
                   Register
                 </Link>
-              </View> */}
-
-<Link href="/Register">View details</Link>
+              </View>
 
               {/* <TouchableOpacity onPress={() => navigation.navigate('auth/Register')}>
   <Text style={{ fontSize: 18, fontFamily: 'PSemibold', color: '#6C63FF' }}>
